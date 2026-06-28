@@ -90,6 +90,10 @@ body.is-loading {
   height: 78px;
   object-fit: contain;
   flex-shrink: 0;
+  display: block;
+  padding: 10px;
+  border-radius: 50%;
+  background: #3f3f3f;
 }
 
 .navbar-brand {
