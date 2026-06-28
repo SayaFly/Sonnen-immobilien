@@ -3,8 +3,8 @@
   --sun-yellow-soft: #ffd866;
   --night-blue: #0f2e59;
   --deep-blue: #071529;
-  --loader-highlight: radial-gradient(circle at center, rgba(255, 191, 0, 0.14), transparent 32%);
-  --loader-backdrop: linear-gradient(135deg, #071529 10%, #0f2e59 65%, #1f4d8c 100%);
+  --loader-radial-overlay: radial-gradient(circle at center, rgba(255, 191, 0, 0.14), transparent 32%);
+  --loader-gradient-background: linear-gradient(135deg, #071529 10%, #0f2e59 65%, #1f4d8c 100%);
 }
 
 * {
@@ -27,7 +27,7 @@ body.is-loading {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--loader-highlight), var(--loader-backdrop);
+  background: var(--loader-radial-overlay), var(--loader-gradient-background);
   z-index: 2000;
   opacity: 1;
   visibility: visible;

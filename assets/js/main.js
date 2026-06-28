@@ -6,9 +6,20 @@ document.addEventListener("DOMContentLoaded", () => {
     window.setTimeout(() => {
       document.body.classList.remove("is-loading");
       loader.classList.add("is-hidden");
-      const removeLoader = () => loader.remove();
-      loader.addEventListener("transitionend", removeLoader, { once: true });
-      window.setTimeout(removeLoader, LOADER_FADE_DURATION_MS);
+      const controller = new AbortController();
+      const fallbackTimeout = window.setTimeout(() => {
+        controller.abort();
+        loader.remove();
+      }, LOADER_FADE_DURATION_MS);
+      loader.addEventListener(
+        "transitionend",
+        () => {
+          window.clearTimeout(fallbackTimeout);
+          controller.abort();
+          loader.remove();
+        },
+        { once: true, signal: controller.signal }
+      );
     }, LOADER_VISIBLE_DURATION_MS);
   }
 
