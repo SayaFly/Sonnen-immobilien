@@ -9,21 +9,38 @@ document.addEventListener("DOMContentLoaded", () => {
     navbar.classList.toggle("scrolled", window.scrollY > 20);
   });
 
-  document.querySelectorAll(".counter").forEach((counter) => {
-    const target = Number(counter.dataset.target || 0);
-    let current = 0;
-    const step = Math.max(1, Math.ceil(target / 80));
-    const tick = () => {
-      current += step;
-      if (current >= target) {
-        counter.textContent = String(target);
-      } else {
-        counter.textContent = String(current);
-        requestAnimationFrame(tick);
-      }
+  const counters = document.querySelectorAll(".counter");
+  if (counters.length) {
+    const animateCounter = (counter) => {
+      const target = Number(counter.dataset.target || 0);
+      let current = 0;
+      const step = Math.max(1, Math.ceil(target / 80));
+      const tick = () => {
+        current += step;
+        if (current >= target) {
+          counter.textContent = String(target);
+        } else {
+          counter.textContent = String(current);
+          requestAnimationFrame(tick);
+        }
+      };
+      tick();
     };
-    tick();
-  });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    counters.forEach((counter) => observer.observe(counter));
+  }
 
   if (window.gsap) {
     gsap.registerPlugin(ScrollTrigger);
