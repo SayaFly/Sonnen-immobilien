@@ -45,7 +45,6 @@ body.is-loading {
   position: relative;
   width: min(55vw, 290px);
   height: min(55vw, 290px);
-  aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;

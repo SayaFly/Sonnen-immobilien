@@ -9,12 +9,14 @@ document.addEventListener("DOMContentLoaded", () => {
       loader.classList.add("is-hidden");
       const controller = new AbortController();
       const fallbackTimeout = setTimeout(() => {
+        if (!loader.isConnected) return;
         controller.abort();
         loader.remove();
       }, LOADER_FADE_DURATION_MS + LOADER_FALLBACK_BUFFER_MS);
       loader.addEventListener(
         "transitionend",
         () => {
+          if (!loader.isConnected) return;
           clearTimeout(fallbackTimeout);
           controller.abort();
           loader.remove();
