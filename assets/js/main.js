@@ -1,4 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const loader = document.getElementById("siteLoader");
+  if (loader) {
+    window.setTimeout(() => {
+      document.body.classList.remove("is-loading");
+      loader.classList.add("is-hidden");
+      window.setTimeout(() => loader.remove(), 600);
+    }, 2400);
+  }
+
   if (window.AOS) {
     AOS.init({ duration: 900, once: true });
   }

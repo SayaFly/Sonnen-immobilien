@@ -12,11 +12,17 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link href="assets/css/style.css" rel="stylesheet" />
   </head>
-  <body>
+  <body class="is-loading">
+    <div class="site-loader" id="siteLoader" aria-hidden="true">
+      <div class="site-loader__inner">
+        <div class="site-loader__ring"></div>
+        <img src="assets/images/logo-sonnenimmobilien-ohg.svg" alt="SonnenImmobilien OHG Logo" class="site-loader__logo" />
+      </div>
+    </div>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-nav">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-          <img src="https://github.com/user-attachments/assets/6a358d8a-8ece-4a2c-8089-901c78984282" alt="SonnenImmobilien OHG Logo" class="brand-logo" />
+          <img src="assets/images/logo-sonnenimmobilien-ohg.svg" alt="SonnenImmobilien OHG Logo" class="brand-logo" />
           <span>SonnenImmobilien OHG</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
