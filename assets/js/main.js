@@ -6,7 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     window.setTimeout(() => {
       document.body.classList.remove("is-loading");
       loader.classList.add("is-hidden");
-      window.setTimeout(() => loader.remove(), LOADER_FADE_DURATION_MS);
+      const removeLoader = () => loader.remove();
+      loader.addEventListener("transitionend", removeLoader, { once: true });
+      window.setTimeout(removeLoader, LOADER_FADE_DURATION_MS);
     }, LOADER_VISIBLE_DURATION_MS);
   }
 
