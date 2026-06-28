@@ -1,11 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById("siteLoader");
+  const LOADER_VISIBLE_DURATION_MS = 2400;
+  const LOADER_FADE_DURATION_MS = 600;
   if (loader) {
     window.setTimeout(() => {
       document.body.classList.remove("is-loading");
       loader.classList.add("is-hidden");
-      window.setTimeout(() => loader.remove(), 600);
-    }, 2400);
+      window.setTimeout(() => loader.remove(), LOADER_FADE_DURATION_MS);
+    }, LOADER_VISIBLE_DURATION_MS);
   }
 
   if (window.AOS) {
