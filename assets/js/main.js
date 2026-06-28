@@ -1,4 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const loader = document.getElementById("siteLoader");
+  const LOADER_VISIBLE_DURATION_MS = 2400;
+  const LOADER_FADE_DURATION_MS = 600;
+  const LOADER_FALLBACK_BUFFER_MS = 100;
+  if (loader) {
+    setTimeout(() => {
+      document.body.classList.remove("is-loading");
+      loader.classList.add("is-hidden");
+      const controller = new AbortController();
+      const fallbackTimeout = setTimeout(() => {
+        if (!loader.isConnected) return;
+        controller.abort();
+        loader.remove();
+      }, LOADER_FADE_DURATION_MS + LOADER_FALLBACK_BUFFER_MS);
+      loader.addEventListener(
+        "transitionend",
+        () => {
+          if (!loader.isConnected) return;
+          clearTimeout(fallbackTimeout);
+          controller.abort();
+          loader.remove();
+        },
+        { once: true, signal: controller.signal }
+      );
+    }, LOADER_VISIBLE_DURATION_MS);
+  }
+
   if (window.AOS) {
     AOS.init({ duration: 900, once: true });
   }

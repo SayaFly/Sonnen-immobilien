@@ -3,6 +3,10 @@
   --sun-yellow-soft: #ffd866;
   --night-blue: #0f2e59;
   --deep-blue: #071529;
+  --loader-ring-color: #4aa3ff;
+  --loader-ring-shadow: rgba(74, 163, 255, 0.25);
+  --loader-radial-overlay: radial-gradient(circle at center, rgba(255, 191, 0, 0.14), transparent 32%);
+  --loader-gradient-background: linear-gradient(135deg, #071529 10%, #0f2e59 65%, #1f4d8c 100%);
 }
 
 * {
@@ -13,6 +17,61 @@ body {
   font-family: "Outfit", sans-serif;
   background: linear-gradient(180deg, #f9fbff 0%, #eef2f8 100%);
   color: #1f2a37;
+}
+
+body.is-loading {
+  overflow: hidden;
+}
+
+.site-loader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--loader-radial-overlay), var(--loader-gradient-background);
+  z-index: 2000;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.site-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.site-loader__inner {
+  position: relative;
+  width: min(55vw, 290px);
+  height: min(55vw, 290px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-loader__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 10px solid rgba(255, 255, 255, 0.12);
+  border-top-color: var(--loader-ring-color);
+  border-right-color: var(--loader-ring-color);
+  animation: loader-spin 1.15s linear infinite;
+  box-shadow: 0 0 30px var(--loader-ring-shadow);
+}
+
+.site-loader__logo {
+  width: 76%;
+  max-width: 220px;
+  height: auto;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.28));
+}
+
+@keyframes loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .glass-nav {
@@ -27,11 +86,15 @@ body {
 }
 
 .brand-logo {
-  width: 52px;
-  height: 52px;
+  width: 78px;
+  height: 78px;
   object-fit: contain;
-  border-radius: 50%;
-  background: #fff;
+  flex-shrink: 0;
+}
+
+.navbar-brand {
+  font-size: 1.1rem;
+  white-space: nowrap;
 }
 
 .btn-sun {
@@ -142,12 +205,32 @@ footer {
 
 @media (max-width: 991px) {
   .brand-logo {
-    width: 44px;
-    height: 44px;
+    width: 64px;
+    height: 64px;
   }
 
   .hero-section {
     min-height: auto;
     padding: 130px 0 70px;
+  }
+}
+
+@media (max-width: 575px) {
+  .site-loader__inner {
+    width: min(72vw, 240px);
+    height: min(72vw, 240px);
+  }
+
+  .site-loader__ring {
+    border-width: 8px;
+  }
+
+  .brand-logo {
+    width: 54px;
+    height: 54px;
+  }
+
+  .navbar-brand {
+    font-size: 0.95rem;
   }
 }

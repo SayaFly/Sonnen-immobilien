@@ -1,0 +1,46 @@
+<svg width="920" height="780" viewBox="0 0 920 780" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sunGradient" x1="460" y1="120" x2="460" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFD76A"/>
+      <stop offset="1" stop-color="#FFB300"/>
+    </linearGradient>
+    <linearGradient id="roofGradient" x1="260" y1="320" x2="690" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#14386C"/>
+      <stop offset="1" stop-color="#0A1F3E"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="920" height="780" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#071529" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <path d="M146 431C184 247 307 134 462 134C617 134 742 249 781 436" stroke="#FFBF00" stroke-width="15" stroke-linecap="round"/>
+    <path d="M158 423C194 255 309 157 462 157C614 157 730 256 767 427" stroke="#14386C" stroke-width="28" stroke-linecap="round"/>
+    <g fill="#FFB300">
+      <path d="M462 146L447 251H477L462 146Z"/>
+      <path d="M392 164L386 274L416 266L392 164Z"/>
+      <path d="M534 164L510 266L540 274L534 164Z"/>
+      <path d="M324 208L351 305L376 286L324 208Z"/>
+      <path d="M602 208L550 286L575 305L602 208Z"/>
+      <path d="M274 264L335 337L351 311L274 264Z"/>
+      <path d="M652 264L575 311L591 337L652 264Z"/>
+      <path d="M240 332L321 381L329 351L240 332Z"/>
+      <path d="M686 332L597 351L605 381L686 332Z"/>
+      <path d="M225 403L318 418V387L225 403Z"/>
+      <path d="M701 403L608 387V418L701 403Z"/>
+    </g>
+    <path d="M332 466C332 369 405 291 498 291C591 291 666 369 666 466H332Z" fill="url(#sunGradient)"/>
+    <path d="M222 514L458 311L539 387V354H585V427L641 474L708 418L826 526" stroke="#0F2E59" stroke-width="26" stroke-linejoin="round"/>
+    <path d="M222 514C318 489 422 476 532 476C642 476 744 490 826 526C733 515 636 509 535 509C425 509 320 517 222 514Z" fill="#0F2E59"/>
+    <path d="M385 477L458 404L520 462" stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="439" y="439" width="21" height="21" fill="#0F2E59"/>
+    <rect x="464" y="439" width="21" height="21" fill="#0F2E59"/>
+    <rect x="439" y="464" width="21" height="21" fill="#0F2E59"/>
+    <rect x="464" y="464" width="21" height="21" fill="#0F2E59"/>
+    <text x="460" y="632" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="96" font-weight="700" fill="#0F2E59">SonnenImmobilien</text>
+    <g>
+      <path d="M165 683H350" stroke="#FFBF00" stroke-width="12" stroke-linecap="round"/>
+      <path d="M570 683H755" stroke="#FFBF00" stroke-width="12" stroke-linecap="round"/>
+      <text x="460" y="702" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="76" font-weight="700" fill="#FFBF00">OHG</text>
+    </g>
+  </g>
+</svg>
