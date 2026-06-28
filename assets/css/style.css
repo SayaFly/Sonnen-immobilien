@@ -42,6 +42,7 @@ body.is-loading {
 .site-loader__inner {
   position: relative;
   width: min(55vw, 290px);
+  height: min(55vw, 290px);
   aspect-ratio: 1;
   display: flex;
   align-items: center;
@@ -216,6 +217,7 @@ footer {
 @media (max-width: 575px) {
   .site-loader__inner {
     width: min(72vw, 240px);
+    height: min(72vw, 240px);
   }
 
   .site-loader__ring {

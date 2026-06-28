@@ -3,18 +3,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const LOADER_VISIBLE_DURATION_MS = 2400;
   const LOADER_FADE_DURATION_MS = 600;
   if (loader) {
-    window.setTimeout(() => {
+    setTimeout(() => {
       document.body.classList.remove("is-loading");
       loader.classList.add("is-hidden");
       const controller = new AbortController();
-      const fallbackTimeout = window.setTimeout(() => {
+      const fallbackTimeout = setTimeout(() => {
         controller.abort();
         loader.remove();
       }, LOADER_FADE_DURATION_MS);
       loader.addEventListener(
         "transitionend",
         () => {
-          window.clearTimeout(fallbackTimeout);
+          clearTimeout(fallbackTimeout);
           controller.abort();
           loader.remove();
         },
