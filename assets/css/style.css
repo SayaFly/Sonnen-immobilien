@@ -3,6 +3,8 @@
   --sun-yellow-soft: #ffd866;
   --night-blue: #0f2e59;
   --deep-blue: #071529;
+  --loader-ring-color: #4aa3ff;
+  --loader-ring-shadow: rgba(74, 163, 255, 0.25);
   --loader-radial-overlay: radial-gradient(circle at center, rgba(255, 191, 0, 0.14), transparent 32%);
   --loader-gradient-background: linear-gradient(135deg, #071529 10%, #0f2e59 65%, #1f4d8c 100%);
 }
@@ -54,10 +56,10 @@ body.is-loading {
   inset: 0;
   border-radius: 50%;
   border: 10px solid rgba(255, 255, 255, 0.12);
-  border-top-color: #4aa3ff;
-  border-right-color: #4aa3ff;
+  border-top-color: var(--loader-ring-color);
+  border-right-color: var(--loader-ring-color);
   animation: loader-spin 1.15s linear infinite;
-  box-shadow: 0 0 30px rgba(74, 163, 255, 0.25);
+  box-shadow: 0 0 30px var(--loader-ring-shadow);
 }
 
 .site-loader__logo {
